@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTasks } from "../context/TaskContext";
-import ConfirmationModal from "./ConfirmationModal"; // Import the modal
+import ConfirmationModal from "./ConfirmationModal";
 
 const TaskItem = ({ task }) => {
   const { toggleTaskCompletion, deleteTask, editTask } = useTasks();
@@ -18,20 +18,20 @@ const TaskItem = ({ task }) => {
   };
 
   const showModal = () => {
-    setIsModalVisible(true); // Show the modal
+    setIsModalVisible(true);
   };
 
   const handleDeleteConfirm = () => {
-    deleteTask(task.id); // Perform the delete action
-    setIsModalVisible(false); // Close the modal after confirmation
+    deleteTask(task.id);
+    setIsModalVisible(false);
   };
 
   const handleDeleteCancel = () => {
-    setIsModalVisible(false); // Close the modal if canceled
+    setIsModalVisible(false);
   };
 
   return (
-    <li className="flex items-center justify-between p-2 border-b">
+    <li className="flex items-center w-full justify-between p-2 border-b">
       <div className="flex items-center">
         <input
           type="checkbox"

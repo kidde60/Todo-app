@@ -111,9 +111,7 @@ function App() {
                   <h1 className="text-2xl font-bold mb-4">To Do App </h1>
                 </Breadcrumb.Item>
               </Breadcrumb>
-              <div
-                style={{ background: "#fff", padding: 24, minHeight: "550px" }}
-              >
+              <div style={{ background: "#fff", minHeight: "550px" }}>
                 <Content />
               </div>
             </AntdContent>
@@ -139,7 +137,7 @@ function Content() {
     //   </Routes>
     // </div>
     <TaskProvider>
-      <div className="max-w-md mx-auto p-4">
+      <div className="max-w-lg mx-auto py-4">
         <TaskForm onSubmit={handleAddTask} />
         <TaskList />
       </div>
