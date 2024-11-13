@@ -16,7 +16,7 @@ export const TaskProvider = ({ children }) => {
 
   // Add task to the list and save to localStorage
   const addTask = (task) => {
-    const updatedTasks = [...tasks, task];
+    const updatedTasks = [...tasks, { ...task, completed: false }];
     setTasks(updatedTasks);
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
@@ -37,6 +37,15 @@ export const TaskProvider = ({ children }) => {
     localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   };
 
+  // Toggle the "completed" state of a task
+  const toggleTaskCompletion = (taskId) => {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
+  };
+
   // Filter tasks based on search query
   const filteredTasks = tasks.filter((task) =>
     task.text.toLowerCase().includes(searchQuery.toLowerCase())
@@ -49,6 +58,7 @@ export const TaskProvider = ({ children }) => {
         addTask,
         editTask,
         deleteTask,
+        toggleTaskCompletion,
         setSearchQuery,
       }}
     >
