@@ -23,7 +23,7 @@ To run this app locally, follow these steps:
 1. Clone the repository
    bash
    Copy code
-   git clone https://github.com/your-username/todo-app.git
+   git clone https://github.com/kidde60/todo-app.git
    cd todo-app
 2. Install dependencies
    Make sure you have Node.js installed. Then, run the following command to install the dependencies:
@@ -32,7 +32,7 @@ npm install 3. Start the development server
 Run the following command to start the development server:
 
 4. npm run dev
-   This will launch the app in your default browser at http://localhost:3000.
+   This will launch the app in your default browser at http://localhost:5173.
 
 5. npm test
    This will run the tests
