@@ -78,7 +78,6 @@ const TaskItem = ({ task }) => {
           Delete
         </button>
       </div>
-
       {/* Confirmation Modal */}
       <ConfirmationModal
         isOpen={isModalVisible}
