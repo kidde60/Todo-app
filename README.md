@@ -15,7 +15,6 @@ Data Persistence: Tasks are stored in the browser's localStorage, so they persis
 
 React: A JavaScript library for building user interfaces.
 Context API: A way to manage global state in React.
-
 Tailwind CSS: A utility-first CSS framework for building custom designs without having to leave your HTML.
 localStorage: For persisting tasks data between page reloads.
 Installation
