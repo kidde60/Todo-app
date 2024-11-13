@@ -1,16 +1,33 @@
 import React, { useState } from "react";
 import { useTasks } from "../context/TaskContext";
+import ConfirmationModal from "./ConfirmationModal"; // Import the modal
 
 const TaskItem = ({ task }) => {
   const { toggleTaskCompletion, deleteTask, editTask } = useTasks();
   const [isEditing, setIsEditing] = useState(false);
   const [newText, setNewText] = useState(task.text);
 
+  // Modal state
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   const handleEdit = () => {
     if (newText.trim() !== "") {
       editTask({ ...task, text: newText });
       setIsEditing(false);
     }
+  };
+
+  const showModal = () => {
+    setIsModalVisible(true); // Show the modal
+  };
+
+  const handleDeleteConfirm = () => {
+    deleteTask(task.id); // Perform the delete action
+    setIsModalVisible(false); // Close the modal after confirmation
+  };
+
+  const handleDeleteCancel = () => {
+    setIsModalVisible(false); // Close the modal if canceled
   };
 
   return (
@@ -56,13 +73,18 @@ const TaskItem = ({ task }) => {
             Edit
           </button>
         )}
-        <button
-          onClick={() => deleteTask(task.id)}
-          className="text-red-500 hover:text-red-700"
-        >
+        {/* Triggering the Confirmation Modal for Delete */}
+        <button onClick={showModal} className="text-red-500 hover:text-red-700">
           Delete
         </button>
       </div>
+
+      {/* Confirmation Modal */}
+      <ConfirmationModal
+        isOpen={isModalVisible}
+        onClose={handleDeleteCancel}
+        onConfirm={handleDeleteConfirm}
+      />
     </li>
   );
 };
