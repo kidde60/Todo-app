@@ -11,7 +11,7 @@ const TaskList = () => {
         type="text"
         placeholder="Search tasks..."
         onChange={(e) => setSearchQuery(e.target.value)}
-        className=" mb-4 border rounded w-full"
+        className=" mb-4 border rounded w-full px-4 py-1"
       />
       <ul className="p-0">
         {tasks.length > 0 ? (
